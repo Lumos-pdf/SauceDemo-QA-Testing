@@ -62,9 +62,9 @@ Each request in the collection includes Postman test scripts validating:
 
 ```
 /API-Testing
-├── README.md                     ← this file
+├── README.md                                   ← this file
 ├── reqres_API_Tests.postman_collection.json    ← exported Postman collection with assertions
-├── API Test Cases – Reqres CRUD API.xlsx           ← full test case documentation (positive + negative)
+├── API Test Cases – Reqres CRUD API.xlsx       ← full test case documentation (positive + negative)
 └── screenshots/
     ├── collection-structure.png
     └── runner-results.png
