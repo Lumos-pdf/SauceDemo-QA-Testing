@@ -1,0 +1,185 @@
+{
+  "info": {
+    "_postman_id": "c320f8f1-8678-466c-9bb2-962fa3976c5b",
+    "name": "reqres_API_Tests.postman_collection.json",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55537093",
+    "_collection_link": "https://go.postman.co/collection/55537093-c320f8f1-8678-466c-9bb2-962fa3976c5b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Status code is 200",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Response time is below 1000ms",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is below 1000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Response contains data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response contains data\", function () {\r",
+              "    pm.expect(pm.response.json()).to.have.property(\"data\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User fields exist and have correct types",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"User fields exist and have correct types\", function () {\r\n    if (pm.response.code !== 200) {\r\n        return;\r\n    }\r\n\r\n    const data = pm.response.json().data;\r\n\r\n    pm.expect(data).to.have.property(\"id\");\r\n    pm.expect(data.id).to.be.a(\"number\");\r\n\r\n    pm.expect(data).to.have.property(\"email\");\r\n    pm.expect(data.email).to.be.a(\"string\");\r\n\r\n    pm.expect(data).to.have.property(\"first_name\");\r\n    pm.expect(data.first_name).to.be.a(\"string\");\r\n\r\n    pm.expect(data).to.have.property(\"last_name\");\r\n    pm.expect(data.last_name).to.be.a(\"string\");\r\n\r\n    pm.expect(data).to.have.property(\"avatar\");\r\n    pm.expect(data.avatar).to.be.a(\"string\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Status code is 404",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/9999",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "9999"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
